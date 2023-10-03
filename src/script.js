@@ -82,6 +82,7 @@ window.addEventListener("load", () => {
     }
 
     draw() {
+      gameDisplay.fillStyle = "black";
       gameDisplay.fillRect(this.x, this.y, this.width, this.height);
 
       this.plasmaBolts.forEach((plasma) => {
@@ -141,6 +142,7 @@ window.addEventListener("load", () => {
     }
 
     draw() {
+      gameDisplay.fillStyle = "yellow";
       gameDisplay.fillRect(this.x, this.y, this.width, this.height);
     }
 
