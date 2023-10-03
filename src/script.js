@@ -15,6 +15,10 @@ window.addEventListener("load", () => {
   class Player {
     constructor() {
       console.log("Player constructed.");
+
+      // Dimensions
+      this.width = 55;
+      this.height = 43;
     }
   }
 
