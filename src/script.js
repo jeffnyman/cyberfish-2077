@@ -19,6 +19,10 @@ window.addEventListener("load", () => {
       // Dimensions
       this.width = 55;
       this.height = 43;
+
+      // Location
+      this.x = 20;
+      this.y = 100;
     }
   }
 
