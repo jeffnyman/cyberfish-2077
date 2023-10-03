@@ -1,0 +1,52 @@
+*,
+*::before,
+*::after {
+  /* Make sure there are no spaces inside or outside any element. */
+  margin: 0;
+  padding: 0;
+
+  /*
+  The width and height specified for an element includes the
+  padding and border, rather than adding them separately.
+  */
+  box-sizing: border-box;
+}
+
+:where(:root) {
+  /*
+  Allow percentage-based heights in the application and make
+  sure that text size is only controlled by font size.
+  */
+  text-size-adjust: 100%;
+  block-size: 100%;
+}
+
+:where(html, body) {
+  /*
+  Disable vertical overscrolling.
+  */
+  overscroll-behavior-y: none;
+}
+
+html {
+  /*  Stretch to the full minimal viewport height. */
+  min-height: 100%;
+
+  /* Element is a flex container with a vertical main axis. */
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  /* Ensure any absolute positioning is relative to the body. */
+  position: relative;
+
+  /* Stretch element to the html element. */
+  flex-grow: 1;
+
+  /*
+  Ensure that the body takes up the full height of its
+  containing block, which is the viewport.
+  */
+  min-block-size: 100%;
+}
