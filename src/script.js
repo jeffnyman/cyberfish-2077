@@ -73,10 +73,16 @@ window.addEventListener("load", () => {
 
       // State
       this.firedPlasmaBolts = [];
+      this.availablePlasmaBolts = 20;
     }
 
     fire() {
-      this.firedPlasmaBolts.push(new PlasmaBolt(this.x, this.y));
+      console.log(`Available bolts: ${this.availablePlasmaBolts}`);
+
+      if (this.availablePlasmaBolts > 0) {
+        this.firedPlasmaBolts.push(new PlasmaBolt(this.x, this.y));
+        this.availablePlasmaBolts--;
+      }
 
       console.log(this.firedPlasmaBolts);
     }
