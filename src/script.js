@@ -90,6 +90,8 @@ window.addEventListener("load", () => {
     }
 
     update() {
+      // Handle movement.
+
       if (this.game.actions.has("ArrowUp")) {
         this.currentVelocity = -this.maximumVelocity;
       } else if (this.game.actions.has("ArrowDown")) {
@@ -99,12 +101,31 @@ window.addEventListener("load", () => {
       }
 
       this.y += this.currentVelocity;
+
+      // Handle plasma bolts.
+
+      this.plasmaBolts.forEach((plasma) => {
+        plasma.update();
+      });
+
+      this.plasmaBolts = this.plasmaBolts.filter(
+        (plasma) => !plasma.dissipated,
+      );
     }
   }
 
   class PlasmaBolt {
     constructor() {
       console.log("Player fires plasma bolt.");
+
+      // Refers to the condition of the bolt hitting nothing and eventually
+      // just disappearing. This is a flag to indicate there was no collision
+      // but the bolt is no longer active.
+      this.dissipated = false;
+    }
+
+    update() {
+      this.dissipated = true;
     }
   }
 
