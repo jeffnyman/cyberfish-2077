@@ -90,8 +90,11 @@ window.addEventListener("load", () => {
     }
 
     update() {
-      // Handle movement.
+      this.handleMovement();
+      this.handlePlasmaBolts();
+    }
 
+    handleMovement() {
       if (game.actions.has("ArrowUp")) {
         this.currentVelocity = -this.maximumVelocity;
       } else if (game.actions.has("ArrowDown")) {
@@ -101,9 +104,9 @@ window.addEventListener("load", () => {
       }
 
       this.y += this.currentVelocity;
+    }
 
-      // Handle plasma bolts.
-
+    handlePlasmaBolts() {
       this.plasmaBolts.forEach((plasma) => {
         plasma.update();
       });
