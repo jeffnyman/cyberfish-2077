@@ -36,5 +36,10 @@ window.addEventListener("load", () => {
   }
 
   const game = new Game();
-  game.render();
+
+  function gameLoop() {
+    game.render();
+  }
+
+  gameLoop();
 });
