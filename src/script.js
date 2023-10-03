@@ -9,15 +9,15 @@ window.addEventListener("load", () => {
     constructor() {
       console.log("Game constructed.");
 
-      this.player = new CyberFish();
+      this.cyberfish = new CyberFish();
     }
 
     render() {
-      this.player.draw();
+      this.cyberfish.draw();
     }
 
     process() {
-      this.player.update();
+      this.cyberfish.update();
     }
   }
 
