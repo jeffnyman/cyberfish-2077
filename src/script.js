@@ -34,8 +34,10 @@ window.addEventListener("load", () => {
     }
 
     setup() {
+      const movementKeys = ["ArrowUp", "ArrowDown"];
+
       window.addEventListener("keydown", (event) => {
-        if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+        if (movementKeys.includes(event.key)) {
           this.game.actions.add(event.key);
         }
 
