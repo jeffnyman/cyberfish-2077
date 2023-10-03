@@ -11,6 +11,7 @@ window.addEventListener("load", () => {
 
       this.cyberfish = new CyberFish();
       this.actionHandler = new ActionHandler();
+      this.actionHandler.setup();
     }
 
     render() {
@@ -25,6 +26,12 @@ window.addEventListener("load", () => {
   class ActionHandler {
     constructor() {
       console.log("Action Handler constructed.");
+    }
+
+    setup() {
+      window.addEventListener("keydown", (event) => {
+        console.log(event.key);
+      });
     }
   }
 
