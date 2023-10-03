@@ -10,6 +10,7 @@ window.addEventListener("load", () => {
       console.log("Game constructed.");
 
       this.cyberfish = new CyberFish();
+      this.actionHandler = new ActionHandler();
     }
 
     render() {
@@ -18,6 +19,12 @@ window.addEventListener("load", () => {
 
     process() {
       this.cyberfish.update();
+    }
+  }
+
+  class ActionHandler {
+    constructor() {
+      console.log("Action Handler constructed.");
     }
   }
 
