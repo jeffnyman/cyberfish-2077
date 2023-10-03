@@ -80,13 +80,17 @@ window.addEventListener("load", () => {
     }
 
     fire() {
-      this.plasmaBolts.push(new PlasmaBolt());
+      this.plasmaBolts.push(new PlasmaBolt(this.x, this.y));
 
       console.log(this.plasmaBolts);
     }
 
     draw() {
       gameDisplay.fillRect(this.x, this.y, this.width, this.height);
+
+      this.plasmaBolts.forEach((plasma) => {
+        plasma.draw();
+      });
     }
 
     update() {
@@ -115,13 +119,25 @@ window.addEventListener("load", () => {
   }
 
   class PlasmaBolt {
-    constructor() {
+    constructor(x, y) {
       console.log("Player fires plasma bolt.");
+
+      // Dimensions
+      this.width = 28;
+      this.height = 10;
+
+      // Location
+      this.x = x;
+      this.y = y;
 
       // Refers to the condition of the bolt hitting nothing and eventually
       // just disappearing. This is a flag to indicate there was no collision
       // but the bolt is no longer active.
       this.dissipated = false;
+    }
+
+    draw() {
+      gameDisplay.fillRect(this.x, this.y, this.width, this.height);
     }
 
     update() {
