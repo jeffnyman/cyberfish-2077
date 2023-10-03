@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
       // Keeps track of all actions (key press events) from the player.
       this.actions = new Set();
 
-      this.cyberfish = new CyberFish();
+      this.cyberfish = new CyberFish(this);
       this.actionHandler = new ActionHandler(this);
       this.actionHandler.setup();
     }
@@ -51,8 +51,10 @@ window.addEventListener("load", () => {
   }
 
   class CyberFish {
-    constructor() {
+    constructor(game) {
       console.log("CyberFish constructed.");
+
+      this.game = game;
 
       // Dimensions
       this.width = 55;
@@ -71,6 +73,14 @@ window.addEventListener("load", () => {
     }
 
     update() {
+      if (this.game.actions.has("ArrowUp")) {
+        this.velocity = -1;
+      } else if (this.game.actions.has("ArrowDown")) {
+        this.velocity = 1;
+      } else {
+        this.velocity = 0;
+      }
+
       this.y += this.velocity;
     }
   }
