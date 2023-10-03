@@ -164,7 +164,12 @@ window.addEventListener("load", () => {
   const game = new Game();
   game.setup();
 
-  function gameLoop() {
+  let previousFrameTime = 0;
+
+  function gameLoop(currentFrameTime) {
+    const deltaTime = currentFrameTime - previousFrameTime;
+    previousFrameTime = currentFrameTime;
+
     gameDisplay.clearRect(0, 0, gameAreaCanvas.width, gameAreaCanvas.height);
 
     game.render();
