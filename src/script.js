@@ -40,16 +40,12 @@ window.addEventListener("load", () => {
         if (movementKeys.includes(event.key)) {
           this.game.actions.add(event.key);
         }
-
-        console.log(this.game.actions);
       });
 
       window.addEventListener("keyup", (event) => {
         if (this.game.actions.has(event.key)) {
           this.game.actions.delete(event.key);
         }
-
-        console.log(this.game.actions);
       });
     }
   }
