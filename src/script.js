@@ -130,6 +130,11 @@ window.addEventListener("load", () => {
       this.x = x;
       this.y = y;
 
+      // Movement
+      this.velocity = 3;
+
+      // State
+
       // Refers to the condition of the bolt hitting nothing and eventually
       // just disappearing. This is a flag to indicate there was no collision
       // but the bolt is no longer active.
@@ -141,7 +146,11 @@ window.addEventListener("load", () => {
     }
 
     update() {
-      this.dissipated = true;
+      this.x += this.velocity;
+
+      if (this.x > gameAreaCanvas.width * 0.5) {
+        this.dissipated = true;
+      }
     }
   }
 
