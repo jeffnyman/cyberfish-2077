@@ -41,6 +41,16 @@ window.addEventListener("load", () => {
 
         console.log(this.game.actions);
       });
+
+      window.addEventListener("keyup", (event) => {
+        const key = this.game.actions.indexOf(event.key);
+
+        if (this.game.actions.includes(event.key)) {
+          this.game.actions.splice(key, 1);
+        }
+
+        console.log(this.game.actions);
+      });
     }
   }
 
