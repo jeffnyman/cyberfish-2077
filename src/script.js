@@ -72,20 +72,20 @@ window.addEventListener("load", () => {
       this.maximumVelocity = 3;
 
       // State
-      this.plasmaBolts = [];
+      this.firedPlasmaBolts = [];
     }
 
     fire() {
-      this.plasmaBolts.push(new PlasmaBolt(this.x, this.y));
+      this.firedPlasmaBolts.push(new PlasmaBolt(this.x, this.y));
 
-      console.log(this.plasmaBolts);
+      console.log(this.firedPlasmaBolts);
     }
 
     draw() {
       gameDisplay.fillStyle = "black";
       gameDisplay.fillRect(this.x, this.y, this.width, this.height);
 
-      this.plasmaBolts.forEach((plasma) => {
+      this.firedPlasmaBolts.forEach((plasma) => {
         plasma.draw();
       });
     }
@@ -108,11 +108,11 @@ window.addEventListener("load", () => {
     }
 
     handlePlasmaBolts() {
-      this.plasmaBolts.forEach((plasma) => {
+      this.firedPlasmaBolts.forEach((plasma) => {
         plasma.update();
       });
 
-      this.plasmaBolts = this.plasmaBolts.filter(
+      this.firedPlasmaBolts = this.firedPlasmaBolts.filter(
         (plasma) => !plasma.dissipated,
       );
     }
