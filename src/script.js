@@ -65,7 +65,8 @@ window.addEventListener("load", () => {
       this.y = 100;
 
       // Movement
-      this.velocity = 0;
+      this.currentVelocity = 0;
+      this.maximumVelocity = 3;
     }
 
     draw() {
@@ -74,14 +75,14 @@ window.addEventListener("load", () => {
 
     update() {
       if (this.game.actions.has("ArrowUp")) {
-        this.velocity = -1;
+        this.currentVelocity = -this.maximumVelocity;
       } else if (this.game.actions.has("ArrowDown")) {
-        this.velocity = 1;
+        this.currentVelocity = this.maximumVelocity;
       } else {
-        this.velocity = 0;
+        this.currentVelocity = 0;
       }
 
-      this.y += this.velocity;
+      this.y += this.currentVelocity;
     }
   }
 
