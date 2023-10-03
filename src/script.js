@@ -49,6 +49,8 @@ window.addEventListener("load", () => {
   const game = new Game();
 
   function gameLoop() {
+    gameDisplay.clearRect(0, 0, gameAreaCanvas.width, gameAreaCanvas.height);
+
     game.render();
     game.process();
 
