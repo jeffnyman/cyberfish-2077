@@ -74,10 +74,15 @@ window.addEventListener("load", () => {
       // Movement
       this.currentVelocity = 0;
       this.maximumVelocity = 3;
+
+      // State
+      this.plasmaBolts = [];
     }
 
     fire() {
-      new PlasmaBolt();
+      this.plasmaBolts.push(new PlasmaBolt());
+
+      console.log(this.plasmaBolts);
     }
 
     draw() {
