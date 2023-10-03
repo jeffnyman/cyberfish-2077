@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
     constructor() {
       console.log("Game constructed.");
 
-      this.player = new Player();
+      this.player = new CyberFish();
     }
 
     render() {
@@ -21,9 +21,9 @@ window.addEventListener("load", () => {
     }
   }
 
-  class Player {
+  class CyberFish {
     constructor() {
-      console.log("Player constructed.");
+      console.log("CyberFish constructed.");
 
       // Dimensions
       this.width = 55;
