@@ -50,3 +50,12 @@ body {
   */
   min-block-size: 100%;
 }
+
+.game {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4979bc;
+  border: 5px solid #000;
+}
