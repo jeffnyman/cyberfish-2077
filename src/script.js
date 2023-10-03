@@ -37,10 +37,15 @@ window.addEventListener("load", () => {
 
     setup() {
       const movementKeys = ["ArrowUp", "ArrowDown"];
+      const SPACEBAR = " ";
 
       window.addEventListener("keydown", (event) => {
         if (movementKeys.includes(event.key)) {
           this.game.actions.add(event.key);
+        }
+
+        if (event.key === SPACEBAR) {
+          this.game.cyberfish.fire();
         }
       });
 
@@ -71,6 +76,10 @@ window.addEventListener("load", () => {
       this.maximumVelocity = 3;
     }
 
+    fire() {
+      new PlasmaBolt();
+    }
+
     draw() {
       gameDisplay.fillRect(this.x, this.y, this.width, this.height);
     }
@@ -85,6 +94,12 @@ window.addEventListener("load", () => {
       }
 
       this.y += this.currentVelocity;
+    }
+  }
+
+  class PlasmaBolt {
+    constructor() {
+      console.log("Player fires plasma bolt.");
     }
   }
 
