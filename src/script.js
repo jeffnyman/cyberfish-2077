@@ -39,6 +39,8 @@ window.addEventListener("load", () => {
 
   function gameLoop() {
     game.render();
+
+    requestAnimationFrame(gameLoop);
   }
 
   gameLoop();
