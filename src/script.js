@@ -11,6 +11,10 @@ window.addEventListener("load", () => {
 
       this.player = new Player();
     }
+
+    render() {
+      this.player.draw();
+    }
   }
 
   class Player {
@@ -25,7 +29,12 @@ window.addEventListener("load", () => {
       this.x = 20;
       this.y = 100;
     }
+
+    draw() {
+      gameDisplay.fillRect(this.x, this.y, this.width, this.height);
+    }
   }
 
   const game = new Game();
+  game.render();
 });
