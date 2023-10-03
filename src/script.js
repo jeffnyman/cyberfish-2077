@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
       console.log("Game constructed.");
 
       // Keeps track of all actions (key press events) from the player.
-      this.actions = [];
+      this.actions = new Set();
 
       this.cyberfish = new CyberFish();
       this.actionHandler = new ActionHandler(this);
@@ -35,20 +35,16 @@ window.addEventListener("load", () => {
 
     setup() {
       window.addEventListener("keydown", (event) => {
-        const keyPresent = this.game.actions.includes(event.key);
-
-        if (event.key === "ArrowUp" && !keyPresent) {
-          this.game.actions.push(event.key);
+        if (event.key === "ArrowUp") {
+          this.game.actions.add(event.key);
         }
 
         console.log(this.game.actions);
       });
 
       window.addEventListener("keyup", (event) => {
-        const key = this.game.actions.indexOf(event.key);
-
-        if (this.game.actions.includes(event.key)) {
-          this.game.actions.splice(key, 1);
+        if (this.game.actions.has(event.key)) {
+          this.game.actions.delete(event.key);
         }
 
         console.log(this.game.actions);
