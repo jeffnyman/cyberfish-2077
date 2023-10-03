@@ -35,7 +35,9 @@ window.addEventListener("load", () => {
 
     setup() {
       window.addEventListener("keydown", (event) => {
-        if (event.key === "ArrowUp") {
+        const keyPresent = this.game.actions.includes(event.key);
+
+        if (event.key === "ArrowUp" && !keyPresent) {
           this.game.actions.push(event.key);
         }
 
