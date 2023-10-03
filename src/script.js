@@ -7,6 +7,14 @@ window.addEventListener("load", () => {
   class Game {
     constructor() {
       console.log("Game constructed.");
+
+      this.player = new Player();
+    }
+  }
+
+  class Player {
+    constructor() {
+      console.log("Player constructed.");
     }
   }
 
