@@ -11,7 +11,9 @@ window.addEventListener("load", () => {
 
       // Keeps track of all actions (key press events) from the player.
       this.actions = new Set();
+    }
 
+    setup() {
       this.cyberfish = new CyberFish(this);
       this.actionHandler = new ActionHandler(this);
       this.actionHandler.setup();
@@ -87,6 +89,7 @@ window.addEventListener("load", () => {
   }
 
   const game = new Game();
+  game.setup();
 
   function gameLoop() {
     gameDisplay.clearRect(0, 0, gameAreaCanvas.width, gameAreaCanvas.height);
