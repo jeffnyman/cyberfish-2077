@@ -14,8 +14,8 @@ window.addEventListener("load", () => {
     }
 
     setup() {
-      this.cyberfish = new CyberFish(this);
-      this.actionHandler = new ActionHandler(this);
+      this.cyberfish = new CyberFish();
+      this.actionHandler = new ActionHandler();
       this.actionHandler.setup();
     }
 
@@ -29,10 +29,8 @@ window.addEventListener("load", () => {
   }
 
   class ActionHandler {
-    constructor(game) {
+    constructor() {
       console.log("Action Handler constructed.");
-
-      this.game = game;
     }
 
     setup() {
@@ -41,27 +39,25 @@ window.addEventListener("load", () => {
 
       window.addEventListener("keydown", (event) => {
         if (movementKeys.includes(event.key)) {
-          this.game.actions.add(event.key);
+          game.actions.add(event.key);
         }
 
         if (event.key === SPACEBAR) {
-          this.game.cyberfish.fire();
+          game.cyberfish.fire();
         }
       });
 
       window.addEventListener("keyup", (event) => {
-        if (this.game.actions.has(event.key)) {
-          this.game.actions.delete(event.key);
+        if (game.actions.has(event.key)) {
+          game.actions.delete(event.key);
         }
       });
     }
   }
 
   class CyberFish {
-    constructor(game) {
+    constructor() {
       console.log("CyberFish constructed.");
-
-      this.game = game;
 
       // Dimensions
       this.width = 55;
@@ -96,9 +92,9 @@ window.addEventListener("load", () => {
     update() {
       // Handle movement.
 
-      if (this.game.actions.has("ArrowUp")) {
+      if (game.actions.has("ArrowUp")) {
         this.currentVelocity = -this.maximumVelocity;
-      } else if (this.game.actions.has("ArrowDown")) {
+      } else if (game.actions.has("ArrowDown")) {
         this.currentVelocity = this.maximumVelocity;
       } else {
         this.currentVelocity = 0;
