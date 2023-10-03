@@ -9,8 +9,11 @@ window.addEventListener("load", () => {
     constructor() {
       console.log("Game constructed.");
 
+      // Keeps track of all actions (key press events) from the player.
+      this.actions = [];
+
       this.cyberfish = new CyberFish();
-      this.actionHandler = new ActionHandler();
+      this.actionHandler = new ActionHandler(this);
       this.actionHandler.setup();
     }
 
@@ -24,13 +27,19 @@ window.addEventListener("load", () => {
   }
 
   class ActionHandler {
-    constructor() {
+    constructor(game) {
       console.log("Action Handler constructed.");
+
+      this.game = game;
     }
 
     setup() {
       window.addEventListener("keydown", (event) => {
-        console.log(event.key);
+        if (event.key === "ArrowUp") {
+          this.game.actions.push(event.key);
+        }
+
+        console.log(this.game.actions);
       });
     }
   }
