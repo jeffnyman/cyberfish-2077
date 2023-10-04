@@ -181,10 +181,6 @@ window.addEventListener("load", () => {
   let previousFrameTime = 0;
 
   function gameLoop(currentFrameTime = 0) {
-    // if (currentFrameTime === undefined) {
-    //   currentFrameTime = 0;
-    // }
-
     const deltaTime = currentFrameTime - previousFrameTime;
     previousFrameTime = currentFrameTime;
 
