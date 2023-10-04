@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "rimraf": "^5.0.5",
-    "rollup": "^3.29.4"
+    "rollup": "^3.29.4",
+    "rollup-plugin-copy": "^3.5.0"
   }
 }
