@@ -102,18 +102,7 @@ window.addEventListener("load", () => {
     update(deltaTime) {
       this.handleMovement();
       this.handlePlasmaBolts();
-
-      // Handle bolt replenish.
-
-      if (this.boltTimer > this.boltInterval) {
-        if (this.availablePlasmaBolts < this.plasmaBoltLimit) {
-          this.availablePlasmaBolts++;
-        }
-
-        this.boltTimer = 0;
-      } else {
-        this.boltTimer += deltaTime;
-      }
+      this.handlePlasmaBoltReplenish(deltaTime);
     }
 
     handleMovement() {
@@ -136,6 +125,18 @@ window.addEventListener("load", () => {
       this.firedPlasmaBolts = this.firedPlasmaBolts.filter(
         (plasma) => !plasma.dissipated,
       );
+    }
+
+    handlePlasmaBoltReplenish(deltaTime) {
+      if (this.boltTimer > this.boltInterval) {
+        if (this.availablePlasmaBolts < this.plasmaBoltLimit) {
+          this.availablePlasmaBolts++;
+        }
+
+        this.boltTimer = 0;
+      } else {
+        this.boltTimer += deltaTime;
+      }
     }
   }
 
