@@ -11,6 +11,9 @@ window.addEventListener("load", () => {
 
       // Keeps track of all actions (key press events) from the player.
       this.actions = new Set();
+
+      // Keeps track of all active bounty targets.
+      this.targets = [];
     }
 
     setup() {
@@ -27,6 +30,15 @@ window.addEventListener("load", () => {
 
     process(deltaTime) {
       this.cyberfish.update(deltaTime);
+      this.addTarget();
+    }
+
+    addTarget() {
+      if (this.targets.length == 0) {
+        console.log("Adding a bounty target.");
+
+        this.targets.push(new Angler());
+      }
     }
   }
 
@@ -187,6 +199,20 @@ window.addEventListener("load", () => {
       if (this.x > gameAreaCanvas.width * 0.5) {
         this.dissipated = true;
       }
+    }
+  }
+
+  class Angler {
+    constructor() {
+      console.log("Angler Target constructed.");
+
+      // Dimensions
+      this.width = 45;
+      this.height = 34;
+
+      // Location
+      this.x = 50;
+      this.y = 100;
     }
   }
 
