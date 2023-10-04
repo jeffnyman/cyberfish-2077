@@ -23,8 +23,8 @@ window.addEventListener("load", () => {
       this.cyberfish.draw();
     }
 
-    process() {
-      this.cyberfish.update();
+    process(deltaTime) {
+      this.cyberfish.update(deltaTime);
     }
   }
 
@@ -74,6 +74,8 @@ window.addEventListener("load", () => {
       // State
       this.firedPlasmaBolts = [];
       this.availablePlasmaBolts = 20;
+      this.boltTimer = 0;
+      this.boltInterval = 500;
     }
 
     fire() {
@@ -96,9 +98,21 @@ window.addEventListener("load", () => {
       });
     }
 
-    update() {
+    update(deltaTime) {
       this.handleMovement();
       this.handlePlasmaBolts();
+
+      // Handle bolt replenish.
+
+      if (this.boltTimer > this.boltInterval) {
+        if (this.availablePlasmaBolts < 20) {
+          this.availablePlasmaBolts++;
+        }
+
+        this.boltTimer = 0;
+      } else {
+        this.boltTimer += deltaTime;
+      }
     }
 
     handleMovement() {
@@ -166,14 +180,18 @@ window.addEventListener("load", () => {
 
   let previousFrameTime = 0;
 
-  function gameLoop(currentFrameTime) {
+  function gameLoop(currentFrameTime = 0) {
+    // if (currentFrameTime === undefined) {
+    //   currentFrameTime = 0;
+    // }
+
     const deltaTime = currentFrameTime - previousFrameTime;
     previousFrameTime = currentFrameTime;
 
     gameDisplay.clearRect(0, 0, gameAreaCanvas.width, gameAreaCanvas.height);
 
     game.render();
-    game.process();
+    game.process(deltaTime);
 
     requestAnimationFrame(gameLoop);
   }
