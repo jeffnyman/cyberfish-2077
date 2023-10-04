@@ -1,6 +1,14 @@
-# CyberFish 2077
+<h1 align="center">
+<img src="./assets/cyberfish-title.png" alt="CyberFish 2077">
+</h1>
 
-_Play a cyberpunk fish in a do-or-die fight for survival ..._
+<p align="center">
+<img style="border-radius: 50%" src="./assets/cyberfish.jpg" alt="Cyberfish on the Hunt!">
+</p>
+
+<p align="center">
+<strong><em>A cyberpunk fish hunts bounties from the rogue planet Mechanica!</em></strong>
+<p>
 
 This project is based on a game project originally written by Frank Dvorak and made available as part of his Udemy course titled "Learn Game Development with JavaScript". Frank's game doesn't actually have a particular name so I decided to model the title on the popular _Cyberpunk 2077_.
 
