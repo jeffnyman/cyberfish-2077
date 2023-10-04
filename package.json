@@ -1,0 +1,12 @@
+{
+  "name": "@jeffnyman/cyberfish-2077",
+  "version": "0.1.0",
+  "description": "A cyberpunk fish hunts bounties from the rogue planet Mechanica",
+  "author": "Jeff Nyman",
+  "license": "MIT",
+  "keywords": [
+    "game",
+    "scroller",
+    "canvas"
+  ]
+}
