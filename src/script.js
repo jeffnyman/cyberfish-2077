@@ -74,6 +74,7 @@ window.addEventListener("load", () => {
       // State
       this.firedPlasmaBolts = [];
       this.availablePlasmaBolts = 20;
+      this.plasmaBoltLimit = 20;
       this.boltTimer = 0;
       this.boltInterval = 500;
     }
@@ -105,7 +106,7 @@ window.addEventListener("load", () => {
       // Handle bolt replenish.
 
       if (this.boltTimer > this.boltInterval) {
-        if (this.availablePlasmaBolts < 20) {
+        if (this.availablePlasmaBolts < this.plasmaBoltLimit) {
           this.availablePlasmaBolts++;
         }
 
