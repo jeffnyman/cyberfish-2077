@@ -10,9 +10,11 @@
     "canvas"
   ],
   "scripts": {
-    "build": "rollup --config"
+    "build": "rollup --config",
+    "delete": "rimraf app"
   },
   "devDependencies": {
+    "rimraf": "^5.0.5",
     "rollup": "^3.29.4"
   }
 }
