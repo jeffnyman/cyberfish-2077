@@ -39,6 +39,8 @@ window.addEventListener("load", () => {
       if (this.targets.length > 0) {
         this.targets[0].update();
       }
+
+      this.targets = this.targets.filter((target) => !target.escaped);
     }
 
     addTarget() {
@@ -46,6 +48,7 @@ window.addEventListener("load", () => {
         console.log("Adding a bounty target.");
 
         this.targets.push(new Angler());
+        console.log(this.targets);
       }
     }
   }
