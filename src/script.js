@@ -99,14 +99,10 @@ window.addEventListener("load", () => {
     }
 
     fire() {
-      console.log(`Available bolts: ${this.availablePlasmaBolts}`);
-
       if (this.availablePlasmaBolts > 0) {
         this.firedPlasmaBolts.push(new PlasmaBolt(this.x, this.y));
         this.availablePlasmaBolts--;
       }
-
-      console.log(this.firedPlasmaBolts);
     }
 
     draw() {
@@ -161,8 +157,6 @@ window.addEventListener("load", () => {
 
   class PlasmaBolt {
     constructor(x, y) {
-      console.log("Player fires plasma bolt.");
-
       // Dimensions
       this.width = 28;
       this.height = 10;
