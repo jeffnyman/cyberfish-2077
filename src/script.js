@@ -223,7 +223,7 @@ window.addEventListener("load", () => {
 
       // Location
       this.x = gameAreaCanvas.width;
-      this.y = 100;
+      this.y = Math.random() * (gameAreaCanvas.height - this.height);
 
       // State
       this.velocity = 1;
