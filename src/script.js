@@ -224,6 +224,10 @@ window.addEventListener("load", () => {
 
       // State
       this.velocity = 1;
+
+      // Refers to the condition of the target not being engaged with by
+      // the player and moving off the edge of the game area.
+      this.escaped = false;
     }
 
     draw() {
@@ -233,6 +237,12 @@ window.addEventListener("load", () => {
 
     update() {
       this.x += -this.velocity;
+
+      if (this.x + this.width < 0) {
+        console.log("Bounty target escaped!");
+
+        this.escaped = true;
+      }
     }
   }
 
