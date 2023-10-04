@@ -226,7 +226,8 @@ window.addEventListener("load", () => {
       this.y = Math.random() * (gameAreaCanvas.height - this.height);
 
       // State
-      this.velocity = 1;
+      const velocityRange = -1.5 - 0.5;
+      this.velocity = Math.random() * velocityRange;
 
       // Refers to the condition of the target not being engaged with by
       // the player and moving off the edge of the game area.
@@ -239,7 +240,7 @@ window.addEventListener("load", () => {
     }
 
     update() {
-      this.x += -this.velocity;
+      this.x += this.velocity;
 
       if (this.x + this.width < 0) {
         console.log("Bounty target escaped!");
