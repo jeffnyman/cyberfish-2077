@@ -17,14 +17,33 @@ window.addEventListener("load", () => {
       this.cyberfish = new CyberFish();
       this.actionHandler = new ActionHandler();
       this.actionHandler.setup();
+      this.hud = new HUD(this.cyberfish);
     }
 
     render() {
       this.cyberfish.draw();
+      this.hud.draw();
     }
 
     process(deltaTime) {
       this.cyberfish.update(deltaTime);
+    }
+  }
+
+  class HUD {
+    constructor(cyberfish) {
+      console.log("HUD constructed.");
+
+      this.cyberfish = cyberfish;
+    }
+
+    draw() {
+      gameDisplay.fillStyle = "yellow";
+
+      for (let i = 0; i < this.cyberfish.availablePlasmaBolts; i++) {
+        const xCoordWithSpacing = 20 + 10 * i;
+        gameDisplay.fillRect(xCoordWithSpacing, 50, 3, 20);
+      }
     }
   }
 
