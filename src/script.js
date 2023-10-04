@@ -219,8 +219,6 @@ window.addEventListener("load", () => {
 
   class Angler {
     constructor() {
-      console.log("Angler Target constructed.");
-
       // Dimensions
       this.width = 45;
       this.height = 34;
@@ -247,8 +245,6 @@ window.addEventListener("load", () => {
       this.x += this.velocity;
 
       if (this.x + this.width < 0) {
-        console.log("Bounty target escaped!");
-
         this.escaped = true;
       }
     }
