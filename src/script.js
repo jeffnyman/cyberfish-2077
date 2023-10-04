@@ -14,6 +14,9 @@ window.addEventListener("load", () => {
 
       // Keeps track of all active bounty targets.
       this.targets = [];
+
+      this.targetTimer = 0;
+      this.targetInterval = 1000;
     }
 
     setup() {
@@ -34,13 +37,19 @@ window.addEventListener("load", () => {
 
     process(deltaTime) {
       this.cyberfish.update(deltaTime);
-      this.addTarget();
 
       this.targets.forEach((target) => {
         target.update();
       });
 
       this.targets = this.targets.filter((target) => !target.escaped);
+
+      if (this.targetTimer > this.targetInterval) {
+        this.addTarget();
+        this.targetTimer = 0;
+      } else {
+        this.targetTimer += deltaTime;
+      }
     }
 
     addTarget() {
