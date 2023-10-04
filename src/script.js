@@ -27,29 +27,24 @@ window.addEventListener("load", () => {
       this.cyberfish.draw();
       this.hud.draw();
 
-      if (this.targets.length > 0) {
-        this.targets[0].draw();
-      }
+      this.targets.forEach((target) => {
+        target.draw();
+      });
     }
 
     process(deltaTime) {
       this.cyberfish.update(deltaTime);
       this.addTarget();
 
-      if (this.targets.length > 0) {
-        this.targets[0].update();
-      }
+      this.targets.forEach((target) => {
+        target.update();
+      });
 
       this.targets = this.targets.filter((target) => !target.escaped);
     }
 
     addTarget() {
-      if (this.targets.length == 0) {
-        console.log("Adding a bounty target.");
-
-        this.targets.push(new Angler());
-        console.log(this.targets);
-      }
+      this.targets.push(new Angler());
     }
   }
 
