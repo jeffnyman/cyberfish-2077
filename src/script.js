@@ -35,6 +35,10 @@ window.addEventListener("load", () => {
     process(deltaTime) {
       this.cyberfish.update(deltaTime);
       this.addTarget();
+
+      if (this.targets.length > 0) {
+        this.targets[0].update();
+      }
     }
 
     addTarget() {
@@ -215,13 +219,20 @@ window.addEventListener("load", () => {
       this.height = 34;
 
       // Location
-      this.x = 350;
+      this.x = gameAreaCanvas.width;
       this.y = 100;
+
+      // State
+      this.velocity = 1;
     }
 
     draw() {
       gameDisplay.fillStyle = "red";
       gameDisplay.fillRect(this.x, this.y, this.width, this.height);
+    }
+
+    update() {
+      this.x += -this.velocity;
     }
   }
 
