@@ -26,6 +26,10 @@ window.addEventListener("load", () => {
     render() {
       this.cyberfish.draw();
       this.hud.draw();
+
+      if (this.targets.length > 0) {
+        this.targets[0].draw();
+      }
     }
 
     process(deltaTime) {
@@ -211,8 +215,13 @@ window.addEventListener("load", () => {
       this.height = 34;
 
       // Location
-      this.x = 50;
+      this.x = 350;
       this.y = 100;
+    }
+
+    draw() {
+      gameDisplay.fillStyle = "red";
+      gameDisplay.fillRect(this.x, this.y, this.width, this.height);
     }
   }
 
