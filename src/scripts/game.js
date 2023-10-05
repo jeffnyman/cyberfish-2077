@@ -112,7 +112,10 @@ export class Game {
 
         if (target.armor <= 0) {
           target.captured = true;
-          this.bounty += target.bounty;
+
+          if (!this.won && !this.loss) {
+            this.bounty += target.bounty;
+          }
         }
       }
     });
