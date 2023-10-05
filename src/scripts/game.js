@@ -1,3 +1,4 @@
+import { CollisionManager } from "./collisionmanager.js";
 import { ActionHandler } from "./actionhandler.js";
 import { CyberFish } from "./cyberfish.js";
 import { Angler } from "./angler.js";
@@ -42,7 +43,7 @@ export class Game {
     this.targets.forEach((target) => {
       target.update();
 
-      if (this.checkCollision(this.cyberfish, target)) {
+      if (CollisionManager.checkCollision(this.cyberfish, target)) {
         target.collided = true;
       }
     });
@@ -60,42 +61,5 @@ export class Game {
 
   addTarget() {
     this.targets.push(new Angler(this));
-  }
-
-  checkCollision(rect1, rect2) {
-    return (
-      this.isLeftOf(rect1, rect2) &&
-      this.isRightOf(rect1, rect2) &&
-      this.isAbove(rect1, rect2) &&
-      this.isBelow(rect1, rect2)
-    );
-  }
-
-  isLeftOf(rect1, rect2) {
-    // Horizontal Axis Check
-    // Check if the left side of rect1 is to the left of
-    // the right side of rect2.
-    return rect1.x < rect2.x + rect2.width;
-  }
-
-  isRightOf(rect1, rect2) {
-    // Horizontal Axis Check
-    // Check if the right side of rect1 is to the right of
-    // the left side of rect2.
-    return rect1.x + rect1.width > rect2.x;
-  }
-
-  isAbove(rect1, rect2) {
-    // Vertical Axis Check
-    // Check if the top side of rect1 is above the bottom
-    // side of rect2.
-    return rect1.y < rect2.y + rect2.height;
-  }
-
-  isBelow(rect1, rect2) {
-    // Vertical Axis Check
-    // Check if the bottom side of rect1 is below the top
-    // side of rect2.
-    return rect1.y + rect1.height > rect2.y;
   }
 }
