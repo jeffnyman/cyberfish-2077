@@ -20,6 +20,8 @@ export class HUD {
 
     // Display plasma bolts
 
+    gameDisplay.fillStyle = "yellow";
+
     for (let i = 0; i < this.game.cyberfish.availablePlasmaBolts; i++) {
       const xCoordWithSpacing = 20 + 10 * i;
       gameDisplay.fillRect(xCoordWithSpacing, 50, 3, 20);
@@ -28,6 +30,7 @@ export class HUD {
     // Display timer
 
     const formattedTime = (this.game.huntTime * 0.001).toFixed(1);
+    gameDisplay.fillStyle = "white";
     gameDisplay.fillText("Hunt Timer: " + formattedTime, 20, 100);
 
     gameDisplay.restore();
