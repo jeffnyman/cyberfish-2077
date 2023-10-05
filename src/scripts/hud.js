@@ -25,6 +25,10 @@ export class HUD {
       gameDisplay.fillRect(xCoordWithSpacing, 50, 3, 20);
     }
 
+    // Display timer
+
+    gameDisplay.fillText("Hunt Timer: " + this.game.huntTime, 20, 100);
+
     gameDisplay.restore();
   }
 }

@@ -24,7 +24,15 @@ export class Game {
     this.bounty = 0;
     this.winningBounty = 10;
 
-    this.won = true;
+    // The win condition is that the player has achieved the winning
+    // bounty in the time limit of the hunt. The loss condition is
+    // that they failed to do so.
+    this.won = false;
+    this.loss = false;
+
+    // The hunt time is effectively a game time limit.
+    this.huntTime = 0;
+    this.huntTimeLimit = 5000;
   }
 
   setup() {
@@ -44,6 +52,14 @@ export class Game {
   }
 
   process(deltaTime) {
+    if (!this.won && !this.loss) {
+      this.huntTime += deltaTime;
+    }
+
+    if (this.huntTime > this.huntTimeLimit) {
+      this.loss = true;
+    }
+
     this.cyberfish.update(deltaTime);
     this.moveTargets(deltaTime);
     this.addTargets(deltaTime);
