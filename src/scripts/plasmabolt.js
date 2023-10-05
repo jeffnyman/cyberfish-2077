@@ -19,6 +19,9 @@ export class PlasmaBolt {
     // just disappearing. This is a flag to indicate there was no collision
     // but the bolt is no longer active.
     this.dissipated = false;
+
+    // Refers to the condition of the bolt hitting a bounty target.
+    this.collided = false;
   }
 
   draw(gameDisplay) {

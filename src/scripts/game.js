@@ -46,10 +46,18 @@ export class Game {
       if (CollisionManager.checkCollision(this.cyberfish, target)) {
         target.collided = true;
       }
+
+      this.cyberfish.firedPlasmaBolts.forEach((plasmaBolt) => {
+        if (CollisionManager.checkCollision(plasmaBolt, target)) {
+          plasmaBolt.collided = true;
+          target.captured = true;
+        }
+      });
     });
 
     this.targets = this.targets.filter((target) => !target.escaped);
     this.targets = this.targets.filter((target) => !target.collided);
+    this.targets = this.targets.filter((target) => !target.captured);
 
     if (this.targetTimer > this.targetInterval) {
       this.addTarget();

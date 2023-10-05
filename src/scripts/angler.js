@@ -18,9 +18,13 @@ export class Angler {
     // the player and moving off the edge of the game area.
     this.escaped = false;
 
-    // Refers ot the condition fo the target colliding with the player.
+    // Refers to the condition of the target colliding with the player.
     // This does not count as collecting the bounty.
     this.collided = false;
+
+    // Refers to the condition of the target colliding with a plasma
+    // bolt fired by the player.
+    this.captured = false;
   }
 
   draw(gameDisplay) {

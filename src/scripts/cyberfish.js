@@ -68,6 +68,10 @@ export class CyberFish {
     this.firedPlasmaBolts = this.firedPlasmaBolts.filter(
       (plasma) => !plasma.dissipated,
     );
+
+    this.firedPlasmaBolts = this.firedPlasmaBolts.filter(
+      (plasma) => !plasma.collided,
+    );
   }
 
   handlePlasmaBoltReplenish(deltaTime) {
