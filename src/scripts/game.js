@@ -39,20 +39,15 @@ export class Game {
 
   process(deltaTime) {
     this.cyberfish.update(deltaTime);
+    this.moveTarget(deltaTime);
+  }
 
+  moveTarget(deltaTime) {
     this.targets.forEach((target) => {
       target.update();
 
-      if (CollisionManager.checkCollision(this.cyberfish, target)) {
-        target.collided = true;
-      }
-
-      this.cyberfish.firedPlasmaBolts.forEach((plasmaBolt) => {
-        if (CollisionManager.checkCollision(plasmaBolt, target)) {
-          plasmaBolt.collided = true;
-          target.captured = true;
-        }
-      });
+      this.checkCyberFishCollision(target);
+      this.checkPlasmaBoltCollision(target);
     });
 
     this.targets = this.targets.filter((target) => !target.escaped);
@@ -65,6 +60,21 @@ export class Game {
     } else {
       this.targetTimer += deltaTime;
     }
+  }
+
+  checkCyberFishCollision(target) {
+    if (CollisionManager.checkCollision(this.cyberfish, target)) {
+      target.collided = true;
+    }
+  }
+
+  checkPlasmaBoltCollision(target) {
+    this.cyberfish.firedPlasmaBolts.forEach((plasmaBolt) => {
+      if (CollisionManager.checkCollision(plasmaBolt, target)) {
+        plasmaBolt.collided = true;
+        target.captured = true;
+      }
+    });
   }
 
   addTarget() {
