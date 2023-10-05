@@ -32,7 +32,7 @@ export class PlasmaBolt {
   update() {
     this.x += this.velocity;
 
-    if (this.x > this.game.width * 0.5) {
+    if (this.x > this.game.width * 0.8) {
       this.dissipated = true;
     }
   }
