@@ -42,10 +42,11 @@ export class Game {
 
   process(deltaTime) {
     this.cyberfish.update(deltaTime);
-    this.moveTarget(deltaTime);
+    this.moveTargets(deltaTime);
+    this.addTargets(deltaTime);
   }
 
-  moveTarget(deltaTime) {
+  moveTargets(deltaTime) {
     this.targets.forEach((target) => {
       target.update();
 
@@ -56,13 +57,19 @@ export class Game {
     this.targets = this.targets.filter((target) => !target.escaped);
     this.targets = this.targets.filter((target) => !target.collided);
     this.targets = this.targets.filter((target) => !target.captured);
+  }
 
+  addTargets(deltaTime) {
     if (this.targetTimer > this.targetInterval) {
       this.addTarget();
       this.targetTimer = 0;
     } else {
       this.targetTimer += deltaTime;
     }
+  }
+
+  addTarget() {
+    this.targets.push(new Angler(this));
   }
 
   checkCyberFishCollision(target) {
@@ -83,9 +90,5 @@ export class Game {
         }
       }
     });
-  }
-
-  addTarget() {
-    this.targets.push(new Angler(this));
   }
 }
