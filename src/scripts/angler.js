@@ -11,8 +11,7 @@ export class Angler {
     this.y = Math.random() * (this.game.height - this.height);
 
     // State
-    const velocityRange = -1.5 - 0.5;
-    this.velocity = Math.random() * velocityRange;
+    this.velocity = Math.random() * -1.5 - 0.5;
 
     // Refers to the condition of the target not being engaged with by
     // the player and moving off the edge of the game area.
