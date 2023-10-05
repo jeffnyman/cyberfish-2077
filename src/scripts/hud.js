@@ -17,7 +17,43 @@ export class HUD {
     this.displayPlasmaBolts(gameDisplay);
     this.displayTimer(gameDisplay);
 
+    if (this.game.won || this.game.loss) {
+      this.displayWinLoss(gameDisplay);
+    }
+
     gameDisplay.restore();
+  }
+
+  displayWinLoss(gameDisplay) {
+    gameDisplay.textAlign = "center";
+    gameDisplay.fillStyle = "white";
+
+    let message1;
+    let message2;
+
+    if (this.game.bounty > this.game.winningBounty) {
+      message1 = "Bounty Collected!";
+      message2 = "Well done on the hunt!";
+    } else {
+      message1 = "Bounty Not Collected!";
+      message2 = "Better luck on the next hunt!";
+    }
+
+    gameDisplay.font = "50px Helvetica";
+
+    gameDisplay.fillText(
+      message1,
+      this.game.width * 0.5,
+      this.game.height * 0.5 - 40,
+    );
+
+    gameDisplay.font = "25px Helvetica";
+
+    gameDisplay.fillText(
+      message2,
+      this.game.width * 0.5,
+      this.game.height * 0.5 + 40,
+    );
   }
 
   displayBounty(gameDisplay) {
