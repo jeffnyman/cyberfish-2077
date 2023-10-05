@@ -72,7 +72,7 @@ export class Game {
     }
   }
 
-  moveTargets(deltaTime) {
+  moveTargets() {
     this.targets.forEach((target) => {
       target.update();
 
