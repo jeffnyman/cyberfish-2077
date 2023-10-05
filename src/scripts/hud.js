@@ -1,14 +1,21 @@
 export class HUD {
-  constructor(cyberfish) {
+  constructor(game) {
     console.log("HUD constructed.");
 
-    this.cyberfish = cyberfish;
+    this.game = game;
   }
 
   draw(gameDisplay) {
     gameDisplay.fillStyle = "yellow";
 
-    for (let i = 0; i < this.cyberfish.availablePlasmaBolts; i++) {
+    // Display bounty
+
+    gameDisplay.font = "25px Helvetica";
+    gameDisplay.fillText("Bounty: " + this.game.bounty, 20, 40);
+
+    // Display plasma bolts
+
+    for (let i = 0; i < this.game.cyberfish.availablePlasmaBolts; i++) {
       const xCoordWithSpacing = 20 + 10 * i;
       gameDisplay.fillRect(xCoordWithSpacing, 50, 3, 20);
     }

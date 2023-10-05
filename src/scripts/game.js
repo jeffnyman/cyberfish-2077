@@ -22,13 +22,16 @@ export class Game {
 
     // The bounty is effectively the score of the game.
     this.bounty = 0;
+    this.winningBounty = 10;
+
+    this.won = true;
   }
 
   setup() {
     this.cyberfish = new CyberFish(this);
     this.actionHandler = new ActionHandler(this);
     this.actionHandler.setup();
-    this.hud = new HUD(this.cyberfish);
+    this.hud = new HUD(this);
   }
 
   render(gameDisplay) {
@@ -44,6 +47,13 @@ export class Game {
     this.cyberfish.update(deltaTime);
     this.moveTargets(deltaTime);
     this.addTargets(deltaTime);
+    this.checkBounty();
+  }
+
+  checkBounty() {
+    if (this.bounty > this.winningBounty) {
+      this.won = true;
+    }
   }
 
   moveTargets(deltaTime) {
