@@ -33,6 +33,11 @@ export class Angler {
   draw(gameDisplay) {
     gameDisplay.fillStyle = "red";
     gameDisplay.fillRect(this.x, this.y, this.width, this.height);
+
+    // Bounty Value
+    gameDisplay.fillStyle = "cyan";
+    gameDisplay.font = "20px Helvetica";
+    gameDisplay.fillText(this.armor, this.x, this.y);
   }
 
   update() {
