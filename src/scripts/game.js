@@ -71,6 +71,7 @@ export class Game {
   checkPlasmaBoltCollision(target) {
     this.cyberfish.firedPlasmaBolts.forEach((plasmaBolt) => {
       if (CollisionManager.checkCollision(plasmaBolt, target)) {
+        target.armor--;
         plasmaBolt.collided = true;
         target.captured = true;
       }

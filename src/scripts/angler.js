@@ -25,6 +25,8 @@ export class Angler {
     // Refers to the condition of the target colliding with a plasma
     // bolt fired by the player.
     this.captured = false;
+
+    this.armor = 5;
   }
 
   draw(gameDisplay) {
