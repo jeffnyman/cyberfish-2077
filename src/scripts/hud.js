@@ -6,11 +6,16 @@ export class HUD {
   }
 
   draw(gameDisplay) {
-    gameDisplay.fillStyle = "yellow";
+    gameDisplay.save();
+
+    gameDisplay.fillStyle = "white";
+    gameDisplay.shadowOffsetX = 2;
+    gameDisplay.shadowOffsetY = 2;
+    gameDisplay.shadowColor = "black";
+    gameDisplay.font = "25px Helvetica";
 
     // Display bounty
 
-    gameDisplay.font = "25px Helvetica";
     gameDisplay.fillText("Bounty: " + this.game.bounty, 20, 40);
 
     // Display plasma bolts
@@ -19,5 +24,7 @@ export class HUD {
       const xCoordWithSpacing = 20 + 10 * i;
       gameDisplay.fillRect(xCoordWithSpacing, 50, 3, 20);
     }
+
+    gameDisplay.restore();
   }
 }
