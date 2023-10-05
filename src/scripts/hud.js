@@ -27,7 +27,8 @@ export class HUD {
 
     // Display timer
 
-    gameDisplay.fillText("Hunt Timer: " + this.game.huntTime, 20, 100);
+    const formattedTime = (this.game.huntTime * 0.001).toFixed(1);
+    gameDisplay.fillText("Hunt Timer: " + formattedTime, 20, 100);
 
     gameDisplay.restore();
   }
