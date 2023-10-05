@@ -17,6 +17,10 @@ export class Angler {
     // Refers to the condition of the target not being engaged with by
     // the player and moving off the edge of the game area.
     this.escaped = false;
+
+    // Refers ot the condition fo the target colliding with the player.
+    // This does not count as collecting the bounty.
+    this.collided = false;
   }
 
   draw(gameDisplay) {
