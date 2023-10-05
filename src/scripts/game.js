@@ -19,6 +19,9 @@ export class Game {
 
     this.targetTimer = 0;
     this.targetInterval = 1000;
+
+    // The bounty is effectively the score of the game.
+    this.bounty = 0;
   }
 
   setup() {
@@ -73,7 +76,11 @@ export class Game {
       if (CollisionManager.checkCollision(plasmaBolt, target)) {
         target.armor--;
         plasmaBolt.collided = true;
-        target.captured = true;
+
+        if (target.armor <= 0) {
+          target.captured = true;
+          this.bounty += target.bounty;
+        }
       }
     });
   }

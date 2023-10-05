@@ -27,6 +27,7 @@ export class Angler {
     this.captured = false;
 
     this.armor = 5;
+    this.bounty = this.armor;
   }
 
   draw(gameDisplay) {
