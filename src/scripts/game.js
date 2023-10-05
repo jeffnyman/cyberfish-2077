@@ -86,7 +86,7 @@ export class Game {
   }
 
   addTargets(deltaTime) {
-    if (this.targetTimer > this.targetInterval) {
+    if (this.targetTimer > this.targetInterval && !this.won && !this.loss) {
       this.addTarget();
       this.targetTimer = 0;
     } else {
