@@ -25,6 +25,10 @@ export class CyberFish {
     this.boltTimer = 0;
     this.boltInterval = 500;
 
+    // Animation
+    this.frameX = 0;
+    this.lastFrame = 37;
+
     // Representation
     this.image = document.getElementById("cyberfish");
   }
@@ -37,12 +41,9 @@ export class CyberFish {
   }
 
   draw(gameDisplay) {
-    // gameDisplay.fillStyle = "black";
-    // gameDisplay.fillRect(this.x, this.y, this.width, this.height);
-
     gameDisplay.drawImage(
       this.image,
-      this.width,
+      this.frameX * this.width,
       this.height,
       this.width,
       this.height,
@@ -61,6 +62,15 @@ export class CyberFish {
     this.handleMovement();
     this.handlePlasmaBolts();
     this.handlePlasmaBoltReplenish(deltaTime);
+    this.handleAnimation();
+  }
+
+  handleAnimation() {
+    if (this.frameX < this.lastFrame) {
+      this.frameX++;
+    } else {
+      this.frameX = 0;
+    }
   }
 
   handleMovement() {
