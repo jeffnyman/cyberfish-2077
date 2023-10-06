@@ -61,3 +61,7 @@ body {
   background-color: #4979bc;
   border: 5px solid #000;
 }
+
+.cyberfish {
+  display: none;
+}
