@@ -44,6 +44,10 @@ export class CyberFish {
   }
 
   draw(gameDisplay) {
+    if (this.game.debug) {
+      gameDisplay.strokeRect(this.x, this.y, this.width, this.height);
+    }
+
     gameDisplay.drawImage(
       this.image,
       this.frameX * this.width,

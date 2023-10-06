@@ -17,6 +17,10 @@ export class ActionHandler {
       if (event.key === SPACEBAR) {
         this.game.cyberfish.fire();
       }
+
+      if (event.key === "d") {
+        this.game.debug = !this.game.debug;
+      }
     });
 
     window.addEventListener("keyup", (event) => {

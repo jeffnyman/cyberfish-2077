@@ -38,6 +38,10 @@ export class Angler {
   }
 
   draw(gameDisplay) {
+    if (this.game.debug) {
+      gameDisplay.strokeRect(this.x, this.y, this.width, this.height);
+    }
+
     gameDisplay.drawImage(
       this.image,
       this.frameX * this.width,
@@ -50,10 +54,12 @@ export class Angler {
       this.height,
     );
 
-    // Bounty Value
-    gameDisplay.fillStyle = "cyan";
-    gameDisplay.font = "20px Helvetica";
-    gameDisplay.fillText(this.armor, this.x, this.y);
+    if (this.game.debug) {
+      // Bounty Value
+      gameDisplay.fillStyle = "cyan";
+      gameDisplay.font = "20px Helvetica";
+      gameDisplay.fillText(this.armor, this.x, this.y);
+    }
   }
 
   update() {

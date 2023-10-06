@@ -33,6 +33,8 @@ export class Game {
     // The hunt time is effectively a game time limit.
     this.huntTime = 0;
     this.huntTimeLimit = 15000;
+
+    this.debug = false;
   }
 
   setup() {
