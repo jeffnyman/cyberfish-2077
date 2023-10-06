@@ -3,8 +3,8 @@ export class Angler {
     this.game = game;
 
     // Dimensions
-    this.width = 45;
-    this.height = 34;
+    this.width = 228;
+    this.height = 169;
 
     // Location
     this.x = this.game.width;
@@ -27,11 +27,24 @@ export class Angler {
 
     this.armor = 5;
     this.bounty = this.armor;
+
+    // Representation
+
+    this.image = document.getElementById("angler");
   }
 
   draw(gameDisplay) {
-    gameDisplay.fillStyle = "red";
-    gameDisplay.fillRect(this.x, this.y, this.width, this.height);
+    gameDisplay.drawImage(
+      this.image,
+      this.width,
+      this.height,
+      this.width,
+      this.height,
+      this.x,
+      this.y,
+      this.width,
+      this.height,
+    );
 
     // Bounty Value
     gameDisplay.fillStyle = "cyan";
