@@ -1,5 +1,4 @@
-import fs from "fs";
-import copy from "rollup-plugin-copy";
+import copy from "rollup-plugin-copy-watch";
 import browsersync from "rollup-plugin-browsersync";
 
 export default {
@@ -12,10 +11,12 @@ export default {
 
   plugins: [
     copy({
-      targets: [{ src: "./src/*.{html,css,ico}", dest: "./app" }],
+      watch: "src",
+      targets: [
+        { src: "./src/*.{html,css,ico}", dest: "./app" },
+        { src: "./src/images/**/*", dest: "./app/images" },
+      ],
     }),
-    watcher({ src: "./src/index.html", dest: "index.html" }),
-    watcher({ src: "./src/style.css", dest: "style.css" }),
     browsersync({
       server: "./app",
       watch: true,
@@ -23,21 +24,3 @@ export default {
     }),
   ],
 };
-
-function watcher({ src, dest }) {
-  return {
-    name: "watcher",
-
-    async buildStart() {
-      this.addWatchFile(src);
-    },
-
-    async generateBuild() {
-      this.emitFile({
-        type: "asset",
-        fileName: dest,
-        source: fs.readFileSync(src),
-      });
-    },
-  };
-}
