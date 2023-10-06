@@ -30,7 +30,7 @@ export class Angler {
 
     // Animation
     this.frameX = 0;
-    this.frameY = 0;
+    this.frameY = Math.floor(Math.random() * 3);
     this.lastFrame = 37;
 
     // Representation
