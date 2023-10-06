@@ -28,16 +28,20 @@ export class Angler {
     this.armor = 5;
     this.bounty = this.armor;
 
-    // Representation
+    // Animation
+    this.frameX = 0;
+    this.frameY = 0;
+    this.lastFrame = 37;
 
+    // Representation
     this.image = document.getElementById("angler");
   }
 
   draw(gameDisplay) {
     gameDisplay.drawImage(
       this.image,
-      this.width,
-      this.height,
+      this.frameX * this.width,
+      this.frameY * this.height,
       this.width,
       this.height,
       this.x,
@@ -57,6 +61,13 @@ export class Angler {
 
     if (this.x + this.width < 0) {
       this.escaped = true;
+    }
+
+    // Handle animation
+    if (this.frameX < this.lastFrame) {
+      this.frameX++;
+    } else {
+      this.frameX = 0;
     }
   }
 }
