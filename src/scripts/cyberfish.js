@@ -87,10 +87,10 @@ export class CyberFish {
 
     // Vertical boundaries
 
-    if (this.y > this.game.height - this.height) {
-      this.y = this.game.height - this.height;
-    } else if (this.y < 0) {
-      this.y = 0;
+    if (this.y > this.game.height - this.height * 0.5) {
+      this.y = this.game.height - this.height * 0.5;
+    } else if (this.y < -this.height * 0.5) {
+      this.y = -this.height * 0.5;
     }
   }
 
