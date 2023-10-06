@@ -7,8 +7,8 @@ export class CyberFish {
     this.game = game;
 
     // Dimensions
-    this.width = 55;
-    this.height = 43;
+    this.width = 120;
+    this.height = 190;
 
     // Location
     this.x = 20;
@@ -24,6 +24,9 @@ export class CyberFish {
     this.plasmaBoltLimit = 20;
     this.boltTimer = 0;
     this.boltInterval = 500;
+
+    // Representation
+    this.image = document.getElementById("cyberfish");
   }
 
   fire() {
@@ -34,8 +37,20 @@ export class CyberFish {
   }
 
   draw(gameDisplay) {
-    gameDisplay.fillStyle = "black";
-    gameDisplay.fillRect(this.x, this.y, this.width, this.height);
+    // gameDisplay.fillStyle = "black";
+    // gameDisplay.fillRect(this.x, this.y, this.width, this.height);
+
+    gameDisplay.drawImage(
+      this.image,
+      this.width,
+      this.height,
+      this.width,
+      this.height,
+      this.x,
+      this.y,
+      this.width,
+      this.height,
+    );
 
     this.firedPlasmaBolts.forEach((plasma) => {
       plasma.draw(gameDisplay);
