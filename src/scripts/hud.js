@@ -39,7 +39,7 @@ export class HUD {
       message2 = "Better luck on the next hunt!";
     }
 
-    gameDisplay.font = "50px Helvetica";
+    gameDisplay.font = "70px Bangers";
 
     gameDisplay.fillText(
       message1,
@@ -47,7 +47,7 @@ export class HUD {
       this.game.height * 0.5 - 40,
     );
 
-    gameDisplay.font = "25px Helvetica";
+    gameDisplay.font = "35px Bangers";
 
     gameDisplay.fillText(
       message2,
