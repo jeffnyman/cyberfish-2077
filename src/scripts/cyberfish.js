@@ -36,7 +36,9 @@ export class CyberFish {
 
   fire() {
     if (this.availablePlasmaBolts > 0) {
-      this.firedPlasmaBolts.push(new PlasmaBolt(this.game, this.x, this.y));
+      this.firedPlasmaBolts.push(
+        new PlasmaBolt(this.game, this.x + 80, this.y + 30),
+      );
       this.availablePlasmaBolts--;
     }
   }
