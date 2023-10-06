@@ -27,6 +27,7 @@ export class CyberFish {
 
     // Animation
     this.frameX = 0;
+    this.frameY = 0;
     this.lastFrame = 37;
 
     // Representation
@@ -44,7 +45,7 @@ export class CyberFish {
     gameDisplay.drawImage(
       this.image,
       this.frameX * this.width,
-      this.height,
+      this.frameY * this.height,
       this.width,
       this.height,
       this.x,
