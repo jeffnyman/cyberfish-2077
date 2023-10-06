@@ -15,6 +15,7 @@ export default {
       targets: [
         { src: "./src/*.{html,css,ico}", dest: "./app" },
         { src: "./src/images/**/*", dest: "./app/images" },
+        { src: "./src/fonts/**/*", dest: "./app/fonts" },
       ],
     }),
     browsersync({
