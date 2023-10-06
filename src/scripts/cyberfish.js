@@ -58,6 +58,14 @@ export class CyberFish {
     }
 
     this.y += this.currentVelocity;
+
+    // Vertical boundaries
+
+    if (this.y > this.game.height - this.height) {
+      this.y = this.game.height - this.height;
+    } else if (this.y < 0) {
+      this.y = 0;
+    }
   }
 
   handlePlasmaBolts() {
