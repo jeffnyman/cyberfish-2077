@@ -2,6 +2,7 @@ import { CollisionManager } from "./collisionmanager.js";
 import { ActionHandler } from "./actionhandler.js";
 import { CyberFish } from "./cyberfish.js";
 import { Angler } from "./angler.js";
+import { NightAngler } from "./nightangler.js";
 import { HUD } from "./hud.js";
 
 export class Game {
@@ -97,7 +98,13 @@ export class Game {
   }
 
   addTarget() {
-    this.targets.push(new Angler(this));
+    const randomize = Math.random();
+
+    if (randomize < 0.5) {
+      this.targets.push(new Angler(this));
+    } else {
+      this.targets.push(new NightAngler(this));
+    }
   }
 
   checkCyberFishCollision(target) {
